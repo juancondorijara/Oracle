@@ -1,14 +1,19 @@
 server:
-  port: 8084
+  port: 8085
+  servlet:
+    context-path: /${spring.application.name}
 
 spring:
   application:
     name: backend
   datasource:
-    url: jdbc:oracle:thin:@localhost:1521:xe
-    username: dbDemo
+    url: jdbc:oracle:thin:@dbdemo_medium?TNS_ADMIN=Wallet_DBDEMO
+    username: DEVELOPER
     password: 12345
     driver-class-name: oracle.jdbc.OracleDriver
+    #url: jdbc:oracle:thin:@localhost:1521:xe
+    #username: dbDemo
+    #password: 12345
   jpa:
     hibernate:
       ddl-auto: none

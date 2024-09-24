@@ -28,6 +28,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public Cliente save(Cliente cliente) {
         log.info("Registro Cliente: " + cliente.toString());
+        cliente.setESTCLI("A");
         return clienteRepository.save(cliente);
     }
 
