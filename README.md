@@ -5,6 +5,6 @@
 - Database: Oracle Database Express Edition 11g
 - Spring Data JPA
 - Java: JDK 17
-- IDE: IntelliJ IDEA | VS Code
+- IDE: IntelliJ IDEA | VS Code | GitHub Codespaces | GitPod
 - Maven: Apache Maven 3.8.1
 - Server: Tomcat
