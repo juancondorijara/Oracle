@@ -1,0 +1,46 @@
+<div class="container" style="text-align: center">
+    <h1>LISTA DE CLIENTES</h1>
+</div>
+
+<br>
+
+<div class="container" style="text-align: center">
+    <br>
+    <form>
+        <table class="table table-striped table-bordered mat-elevation-z8">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col" class="text-bold col-2">#</th>
+                    <th scope="col" style="text-align: center">DNI</th>
+                    <th scope="col" style="text-align: center">NOMBRE</th>
+                    <th scope="col" style="text-align: center">ESTADO</th>
+                    <th scope="col" style="text-align: center">ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let clienteInterface of clienteInterfaces">
+                    <td>{{clienteInterface.idcli}}</td>
+                    <td>{{clienteInterface.dnicli }}</td>
+                    <td>{{clienteInterface.nomcli }}</td>
+                    <td>{{clienteInterface.estcli }}</td>
+                    
+                    <td style="text-align: center">
+                        <button type="button" class="btn btn-dark btn-sm">
+                            <em class="fa-sharp fa-solid fa-pen-to-square"></em>
+                            EDITAR
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm">
+                            <em class="fa-solid fa-trash"></em>
+                            ELIMINAR
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="clienteInterfaces.length == 0" style="text-align: center">
+            <p class="fw-semibold fs-6" style="color: #BD1F09;">
+                <em class="fa-solid fa-circle-xmark"></em> Sin Registros...
+            </p>
+        </div>
+    </form>
+</div>

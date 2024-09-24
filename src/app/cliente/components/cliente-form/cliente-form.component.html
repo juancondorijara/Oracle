@@ -1,0 +1,28 @@
+<div class="container" style="text-align: center">
+    <h1>REGISTRO DE CLIENTES</h1>
+    <form>
+        <br/>
+
+        <br/>
+        <div class="row">
+            <div class="form-outline col">
+                <label class="form-label">DNI</label>
+                <input [(ngModel)]="clienteInterface.dnicli" name="dnicli" type="text" class="form-control" placeholder="Ingresa tu DNI"/>
+            </div>
+            <div class="form-outline col">
+                <label class="form-label">NOMBRE</label>
+                <input [(ngModel)]="clienteInterface.nomcli" name="nomcli" type="text" class="form-control" placeholder="Ingresa tu Nombre"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-outline col">
+                <br/>
+                <button type="button" class="btn btn-dark" (click)="save(clienteInterface)">
+                    <em class="fa-solid fa-floppy-disk"></em>
+                    REGISTRAR
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
