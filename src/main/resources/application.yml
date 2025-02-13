@@ -1,13 +1,11 @@
 server:
   port: 8085
-  servlet:
-    context-path: /${spring.application.name}
 
 spring:
   application:
     name: backend
   datasource:
-    url: jdbc:oracle:thin:@dbdemo_medium?TNS_ADMIN=Wallet_DBDEMO
+    url: jdbc:oracle:thin:@developer_medium?TNS_ADMIN=Wallet_developer
     username: DEVELOPER
     password: 12345
     driver-class-name: oracle.jdbc.OracleDriver
