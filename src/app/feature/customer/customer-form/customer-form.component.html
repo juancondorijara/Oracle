@@ -1,0 +1,57 @@
+<form [formGroup]="form" class="form-container">
+  <div class="form-grid">
+    <!-- DNI Field -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>DNI</mat-label>
+      <input matInput formControlName="dni" autocomplete="off" (keypress)="onlyNumbers($event)" maxlength="8">
+      <mat-error *ngIf="form.get('dni')?.hasError('required')">
+        El DNI es obligatorio
+      </mat-error>
+      <mat-error *ngIf="form.get('dni')?.hasError('pattern')">
+        DNI = 8 números
+      </mat-error>
+    </mat-form-field>
+
+    <!-- CellPhone Field -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Celular</mat-label>
+      <input matInput formControlName="cellPhone" autocomplete="off" (keypress)="onlyNumbers($event)" maxlength="9">
+      <mat-error *ngIf="form.get('cellPhone')?.hasError('required')">
+        El Celular es obligatorio
+      </mat-error>
+      <mat-error *ngIf="form.get('cellPhone')?.hasError('pattern')">
+        Celular = 9 números y empezar por 9
+      </mat-error>
+    </mat-form-field>
+
+    <!-- firstName Field -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombres</mat-label>
+      <input matInput formControlName="firstName" autocomplete="off" (keypress)="onlyLetters($event)">
+      <mat-error *ngIf="form.get('firstName')?.hasError('required')">
+        El nombre es obligatorio
+      </mat-error>
+      <mat-error *ngIf="form.get('firstName')?.hasError('pattern')">
+        Solo se permiten letras
+      </mat-error>
+    </mat-form-field>
+
+    <!-- lastName Field -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Apellidos</mat-label>
+      <input matInput formControlName="lastName" autocomplete="off" (keypress)="onlyLetters($event)">
+      <mat-error *ngIf="form.get('lastName')?.hasError('required')">
+        El apellido es obligatorio
+      </mat-error>
+      <mat-error *ngIf="form.get('lastName')?.hasError('pattern')">
+        Solo se permiten letras
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-actions">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="save()">
+      Registrar
+    </button>
+  </div>
+</form>

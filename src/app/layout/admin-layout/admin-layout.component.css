@@ -1,0 +1,57 @@
+.layout-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 220px;
+}
+
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-content {
+  padding: 1rem;
+}
+
+mat-nav-list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 220px;
+}
+
+.main-content {
+  padding: 24px;
+  min-height: calc(100vh - 64px);
+  background: #f5f6fa;
+}
+
+@media (max-width: 768px) {
+  .sidenav {
+    width: 180px;
+  }
+  .main-content {
+    padding: 12px;
+  }
+}

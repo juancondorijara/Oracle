@@ -1,0 +1,15 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" mode="side" [(opened)]="opened" [fixedInViewport]="true" fixedTopGap="64">
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header (toggleSidenav)="drawer.toggle()"></app-header>
+    <main class="content">
+      <!-- <main class="main-content"></main> -->
+      <router-outlet></router-outlet>
+      <!-- <ng-content></ng-content> -->
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

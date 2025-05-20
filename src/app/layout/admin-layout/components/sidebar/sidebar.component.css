@@ -1,0 +1,12 @@
+mat-nav-list {
+  padding-top: 16px;
+}
+
+a.active {
+  background: #e3f2fd;
+  font-weight: bold;
+}
+
+mat-icon {
+  margin-right: 12px;
+}
