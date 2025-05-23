@@ -1,0 +1,44 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="dni">DNI</label>
+      <input id="dni" type="text" formControlName="dni" maxlength="8" placeholder="DNI (8 números)">
+      <div class="error" *ngIf="form.get('dni')?.invalid && form.get('dni')?.touched">
+        <span *ngIf="form.get('dni')?.hasError('required')">El DNI es obligatorio</span>
+        <span *ngIf="form.get('dni')?.hasError('pattern')">DNI = 8 números</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cellPhone">Celular</label>
+      <input id="cellPhone" type="text" formControlName="cellPhone" maxlength="9" placeholder="Celular (9 números)">
+      <div class="error" *ngIf="form.get('cellPhone')?.invalid && form.get('cellPhone')?.touched">
+        <span *ngIf="form.get('cellPhone')?.hasError('required')">El Celular es obligatorio</span>
+        <span *ngIf="form.get('cellPhone')?.hasError('pattern')">Celular = 9 números y empezar por 9</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">Nombres</label>
+      <input id="firstName" type="text" formControlName="firstName" placeholder="Nombres">
+      <div class="error" *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
+        <span *ngIf="form.get('firstName')?.hasError('required')">El nombre es obligatorio</span>
+        <span *ngIf="form.get('firstName')?.hasError('pattern')">Solo se permiten letras</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Apellidos</label>
+      <input id="lastName" type="text" formControlName="lastName" placeholder="Apellidos">
+      <div class="error" *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
+        <span *ngIf="form.get('lastName')?.hasError('required')">El apellido es obligatorio</span>
+        <span *ngIf="form.get('lastName')?.hasError('pattern')">Solo se permiten letras</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">
+      {{ form.value.id ? 'Actualizar' : 'Registrar' }}
+    </button>
+  </div>
+</form>

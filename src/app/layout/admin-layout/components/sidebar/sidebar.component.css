@@ -2,11 +2,23 @@ mat-nav-list {
   padding-top: 16px;
 }
 
+a[mat-list-item] {
+  width: 90%;
+  display: flex;
+  align-items: center;      /* Alinea verticalmente icono y texto */
+  justify-content: flex-start;
+  text-align: left;
+  gap: 5px;                /* Espacio entre icono y texto */
+  margin-bottom: 8px;
+}
+
+a[mat-list-item] mat-icon {
+  margin-right: 0;
+  vertical-align: middle;
+  font-size: 24px;
+}
+
 a.active {
   background: #e3f2fd;
   font-weight: bold;
-}
-
-mat-icon {
-  margin-right: 12px;
 }

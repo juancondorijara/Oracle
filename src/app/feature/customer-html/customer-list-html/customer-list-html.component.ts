@@ -1,54 +1,43 @@
-import { Component, inject, OnInit } from '@angular/core';
-
-//new import
-import { MatTableModule } from '@angular/material/table';
+import { Component, OnInit, inject } from '@angular/core';
 import { CustomerService } from '../../../core/services/customer.service';
 import { Customer } from '../../../core/interfaces/customer';
-import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common'; //usar ngFor y listar en la tabla 
+import Swal from 'sweetalert2'; // Librería para alertas
 
 @Component({
-  selector: 'app-customer-list',
+  selector: 'app-customer-list-html',
   standalone: true,
-  templateUrl: './customer-list.component.html',
-  styleUrl: './customer-list.component.css',
-  imports: [
-    MatTableModule,
-    MatIconModule
-  ]
+  templateUrl: './customer-list-html.component.html',
+  styleUrl: './customer-list-html.component.css',
+  imports: [CommonModule]
 })
-export class CustomerListComponent implements OnInit {
+export class CustomerListHtmlComponent implements OnInit {
 
   state: string = 'A';
 
-  displayedColumns: string[] = ['id', 'dni', 'cellPhone', 'firstName', 'lastName', 'state', 'actions'];
-  dataSource: Customer[] = [];
-  
+  customers: Customer[] = [];
   router = inject(Router);
-
-  selectedCustomer?: Customer;
-  
-  private customerService = inject(CustomerService);
+  customerService = inject(CustomerService);
 
   ngOnInit(): void {
     this.findByState();
   }
 
   goCustomerForm(): void {
-    this.router.navigate(['/customer-form']); // Navega al formulario
+    this.router.navigate(['/customer-form-html']);
   }
 
   findAll(): void {
     this.customerService.findAll().subscribe(response => {
-      this.dataSource = response;
+      this.customers = response;
       console.log('Listando Datos de Clientes');
     });
   }
 
   findByState() {
     this.customerService.findByState(this.state).subscribe(response => {
-      this.dataSource = response;
+      this.customers = response;
       console.log('Listando Datos por Estado= ' + this.state);
     });
   }
@@ -76,5 +65,5 @@ export class CustomerListComponent implements OnInit {
       }
     })
   }
-  
+
 }

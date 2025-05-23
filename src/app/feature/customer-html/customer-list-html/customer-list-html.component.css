@@ -1,0 +1,74 @@
+/* Agrega esto en customer-list-html.component.css */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+
+.customer-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.08);
+}
+
+.customer-table th, .customer-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.customer-table th {
+  background: #f5f6fa;
+  color: #333;
+  font-weight: bold;
+}
+
+.btn-edit, .btn-delete {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 6px;
+  font-size: 0.98rem;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+
+.btn-edit {
+  background: #1976d2;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background: #1565c0;
+}
+
+.btn-delete {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background: #b71c1c;
+}
+
+@media (max-width: 900px) {
+  .customer-table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .customer-table {
+    min-width: 400px;
+    font-size: 0.95rem;
+  }
+  .btn-edit, .btn-delete {
+    padding: 4px 8px;
+    font-size: 0.93rem;
+    margin-right: 2px;
+  }
+}

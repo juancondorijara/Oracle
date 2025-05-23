@@ -1,19 +1,20 @@
-.layout-container {
-  height: 100vh;
+.content {
+  padding-top: 64px; /* Altura del header fijo */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* O center si quieres centrar verticalmente */
+  box-sizing: border-box;
 }
 
-.sidenav {
-  width: 220px;
+.layout-container {
+  height: 100vh;
 }
 
 .main-toolbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-}
-
-.main-content {
-  padding: 1rem;
 }
 
 mat-nav-list a {

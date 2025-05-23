@@ -3,7 +3,6 @@ import { inject, Injectable } from '@angular/core';
 //new import
 import { HttpClient } from '@angular/common/http';
 import { Customer } from '../interfaces/customer';
-import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
 
@@ -30,6 +29,10 @@ export class CustomerService {
 
   findById(id: number) {
     return this.http.get<Customer[]>(`${this.urlBackEnd}/${id}`);
+  }
+
+  findByState(state: string) {
+    return this.http.get<Customer[]>(`${this.urlBackEnd}/state/${state}`);
   }
 
   save(customer: Customer) {

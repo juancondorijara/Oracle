@@ -1,3 +1,4 @@
+
 <div class="table-responsive">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -41,10 +42,10 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
       <td mat-cell *matCellDef="let customer">
-        <button mat-icon-button color="primary" (click)="goCustomerForm()">
+        <button mat-icon-button color="primary" (click)="onEdit(customer)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button color="warn">
+        <button mat-icon-button color="warn" (click)="delete(customer.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>

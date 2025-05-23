@@ -1,12 +1,20 @@
 .header-toolbar {
-  position: sticky;
+  position: fixed;      /* O usa sticky si prefieres */
   top: 0;
-  z-index: 1000;
+  left: 0;
+  width: 100vw;
+  z-index: 2000;        /* Asegúrate que sea mayor que el sidebar */
 }
 
 .menu-btn {
   margin-right: 16px;
   display: none;
+}
+
+/* Puedes poner esto en header.component.css */
+.header-logo {
+  height: 50px;
+  margin-right: 12px;
 }
 
 .logo {

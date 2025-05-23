@@ -4,6 +4,8 @@ import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { CustomerFormComponent } from './feature/customer/customer-form/customer-form.component';
 import { CustomerListComponent } from './feature/customer/customer-list/customer-list.component';
+import { CustomerFormHtmlComponent } from './feature/customer-html/customer-form-html/customer-form-html.component';
+import { CustomerListHtmlComponent } from './feature/customer-html/customer-list-html/customer-list-html.component';
 
 export const routes: Routes = [
     {
@@ -17,6 +19,14 @@ export const routes: Routes = [
             {
                 path: 'customer-list',
                 component: CustomerListComponent
+            },
+            {
+                path: 'customer-form-html',
+                component: CustomerFormHtmlComponent
+            },
+            {
+                path: 'customer-list-html',
+                component: CustomerListHtmlComponent
             },
             {
                 path: '',

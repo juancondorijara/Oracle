@@ -1,10 +1,6 @@
 <!-- BARRA LATERAL IZQUIERDA -->
 
 <mat-nav-list>
-  <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
-    <mat-icon>dashboard</mat-icon>
-    <span>Dashboard</span>
-  </a>
   <!-- Cambiar al componente customer-form según el app.routes.ts -->
   <a mat-list-item routerLink="/customer-form" routerLinkActive="active">
     <mat-icon>people</mat-icon>
@@ -12,7 +8,18 @@
   </a>
   <!-- Cambiar al componente customer-list según el app.routes.ts -->
   <a mat-list-item routerLink="/customer-list" routerLinkActive="active">
-    <mat-icon>people</mat-icon>
+    <mat-icon>table</mat-icon>
     <span>Listar Clientes</span>
+  </a>
+
+  <!-- Cambiar al componente customer-form según el app.routes.ts -->
+  <a mat-list-item routerLink="/customer-form-html" routerLinkActive="active">
+    <mat-icon>people</mat-icon>
+    <span>Registrar HTML</span>
+  </a>
+  <!-- Cambiar al componente customer-list según el app.routes.ts -->
+  <a mat-list-item routerLink="/customer-list-html" routerLinkActive="active">
+    <mat-icon>table</mat-icon>
+    <span>Listar HTML</span>
   </a>
 </mat-nav-list>

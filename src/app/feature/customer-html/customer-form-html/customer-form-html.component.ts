@@ -1,28 +1,22 @@
 import { Component, inject, Input, OnInit, Output, EventEmitter } from '@angular/core';
-
-//new import
-import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { CustomerService } from '../../../core/services/customer.service';
 import { Customer } from '../../../core/interfaces/customer';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-customer-form',
+  selector: 'app-customer-form-html',
   standalone: true,
-  templateUrl: './customer-form.component.html',
-  styleUrl: './customer-form.component.css',
+  templateUrl: './customer-form-html.component.html',
+  styleUrl: './customer-form-html.component.css',
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule
-  ],
+    ReactiveFormsModule
+  ]
 })
-export class CustomerFormComponent implements OnInit {
+export class CustomerFormHtmlComponent implements OnInit {
 
   private customerService = inject(CustomerService);
 
@@ -78,7 +72,7 @@ export class CustomerFormComponent implements OnInit {
 
   //Navegar a la lista de clientes
   goCustomerList(): void {
-    this.router.navigate(['/customer-list']);
+    this.router.navigate(['/customer-list-html']);
   }
 
   //Validar solo números
