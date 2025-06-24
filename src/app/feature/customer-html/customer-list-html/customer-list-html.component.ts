@@ -21,7 +21,8 @@ export class CustomerListHtmlComponent implements OnInit {
   customerService = inject(CustomerService);
 
   ngOnInit(): void {
-    this.findByState();
+    this.findByState(); //lista por Estado A | I
+    //this.findAll();   // lista todos
   }
 
   goCustomerForm(): void {
@@ -64,6 +65,17 @@ export class CustomerListHtmlComponent implements OnInit {
         );
       }
     })
+  }
+
+  reportPdf() {
+    this.customerService.reportPdf().subscribe(blob => {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'reporte.pdf'; // nombre temporal
+      link.click();
+      URL.revokeObjectURL(url);
+    });
   }
 
 }

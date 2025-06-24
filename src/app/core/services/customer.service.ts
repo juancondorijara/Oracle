@@ -51,4 +51,8 @@ export class CustomerService {
     return this.http.patch<Customer>(`${this.urlBackEnd}/restore/${id}`, ``);
   }
 
+  reportPdf() {
+    return this.http.get(`${this.urlBackEnd}/pdf`, { responseType: 'blob' });
+  }
+
 }
