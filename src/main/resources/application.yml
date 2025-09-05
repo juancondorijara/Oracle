@@ -1,0 +1,22 @@
+server:
+  port: ${PORT:8085}  # puerto 8085 por defecto si no se define en las variables de entorno
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/XEPDB1 # host de oracle con Docker
+    username: DEVELOPER                          # mi usuario creado en oracle
+    password: Admin12345                         # mi contraseña creado en oracle     
+    driver-class-name: oracle.jdbc.OracleDriver  # driver de oracle
+    #url: ${DATABASE_URL}                         # host de oracle con Spring Boot
+    #username: ${DATABASE_USERNAME}               # mi usuario creado en oracle
+    #password: ${DATABASE_PASSWORD}               # mi contraseña creado en oracle     
+    #driver-class-name: oracle.jdbc.OracleDriver  # driver de oracle
+  jpa:
+    hibernate:
+      ddl-auto: update   # none | update | create | create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+  main:
+    allow-bean-definition-overriding: true
