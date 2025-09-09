@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "sale_detail")
+@Table(name = "sale_detail", schema = "DEVELOPER_01")
 public class SaleDetail {
 
     @Id

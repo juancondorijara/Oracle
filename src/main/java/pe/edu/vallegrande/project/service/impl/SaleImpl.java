@@ -12,6 +12,7 @@ import pe.edu.vallegrande.project.model.SaleDetail;
 import pe.edu.vallegrande.project.repository.CustomerRepository;
 import pe.edu.vallegrande.project.repository.ProductRepository;
 import pe.edu.vallegrande.project.repository.SaleRepository;
+import pe.edu.vallegrande.project.repository.SaleDetailRepository;
 import pe.edu.vallegrande.project.service.SaleService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,11 +23,17 @@ public class SaleImpl implements SaleService {
     private final CustomerRepository customerRepository;
     private final ProductRepository productRepository;
     private final SaleRepository saleRepository;
+    private final SaleDetailRepository saleDetailRepository;
 
-    public SaleImpl(CustomerRepository customerRepository, ProductRepository productRepository, SaleRepository saleRepository) {
+    public SaleImpl(
+        CustomerRepository customerRepository, 
+        ProductRepository productRepository, 
+        SaleRepository saleRepository,
+        SaleDetailRepository saleDetailRepository) {
         this.customerRepository = customerRepository;
         this.productRepository = productRepository;
         this.saleRepository = saleRepository;
+        this.saleDetailRepository = saleDetailRepository;
     }
 
     @Transactional
@@ -106,6 +113,43 @@ public class SaleImpl implements SaleService {
         );
 
         return dto;
+    }
+
+    public List<SaleResponse> findAll() {
+        List<Sale> sales = saleRepository.findAll();
+
+        return sales.stream().map(sale -> {
+            SaleResponse response = new SaleResponse();
+            response.setSaleId(sale.getId());
+            response.setSaleDate(sale.getSaleDate());
+            response.setTotal(sale.getTotal());
+            response.setState(sale.getState());
+
+            // Mapear Customer
+            SaleResponse.CustomerDto customerDto = new SaleResponse.CustomerDto();
+            customerDto.setCustomerId(sale.getCustomer().getId());
+            customerDto.setDni(sale.getCustomer().getDni());
+            customerDto.setFirstName(sale.getCustomer().getFirstName());
+            customerDto.setLastName(sale.getCustomer().getLastName());
+            response.setCustomer(customerDto);
+
+            // Mapear detalles de productos
+            List<SaleDetail> details = saleDetailRepository.findBySaleId(sale.getId());
+            List<SaleResponse.ProductDetailDto> productDtos = details.stream().map(detail -> {
+                SaleResponse.ProductDetailDto productDto = new SaleResponse.ProductDetailDto();
+                productDto.setProductId(detail.getProduct().getId());
+                productDto.setName(detail.getProduct().getName());
+                productDto.setDescription(detail.getProduct().getDescription());
+                //productDto.setSalePrice(detail.getSalePrice());
+                productDto.setSalePrice(detail.getProduct().getSalePrice());
+                productDto.setQuantity(detail.getQuantity());
+                productDto.setSubtotal(detail.getSubtotal());
+                return productDto;
+            }).collect(Collectors.toList());
+            response.setProducts(productDtos);
+
+            return response;
+        }).collect(Collectors.toList());
     }
 
 }
