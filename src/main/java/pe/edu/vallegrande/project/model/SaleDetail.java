@@ -1,10 +1,14 @@
 package pe.edu.vallegrande.project.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Table(name = "sale_detail", schema = "DEVELOPER_01")
 public class SaleDetail {
 

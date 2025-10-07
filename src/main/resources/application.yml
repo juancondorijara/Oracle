@@ -9,10 +9,14 @@ spring:
     driver-class-name: oracle.jdbc.OracleDriver  # driver de oracle
   jpa:
     hibernate:
-      ddl-auto: update   # none | update | create | create-drop
+      ddl-auto: none   # none | update | create | create-drop
     show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.OracleDialect
   main:
     allow-bean-definition-overriding: true
+
+jwt:
+  secret: VGhpcy1pcy1hLXZlcnktc2VjdXJlLXNlY3JldC1rZXktZm9yLUpXVHMtMjAyNQ==  #Clave secreta: al menos 32 caracteres seguros (no uses palabras simples)
+  expiration: '3600000' # 1 hora en milisegundos

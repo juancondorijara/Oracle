@@ -1,12 +1,16 @@
 package pe.edu.vallegrande.project.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Table(name = "sale", schema = "DEVELOPER_01")
 public class Sale {
 

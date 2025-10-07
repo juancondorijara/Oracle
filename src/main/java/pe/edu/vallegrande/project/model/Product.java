@@ -1,14 +1,13 @@
 package pe.edu.vallegrande.project.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
+import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Table(name = "product", schema = "DEVELOPER_02")
 public class Product {
