@@ -28,5 +28,5 @@ public class User {
 
     @Column(name = "state")
     private String state;
-    
+
 }

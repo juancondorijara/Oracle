@@ -20,3 +20,5 @@ spring:
 jwt:
   secret: VGhpcy1pcy1hLXZlcnktc2VjdXJlLXNlY3JldC1rZXktZm9yLUpXVHMtMjAyNQ==  #Clave secreta: al menos 32 caracteres seguros (no uses palabras simples)
   expiration: '3600000' # 1 hora en milisegundos
+aes:
+  secret: '1234567890123456'

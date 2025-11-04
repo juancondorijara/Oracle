@@ -22,10 +22,10 @@ public class AuthConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/v1/api/auth/**").permitAll() // público
-                        .requestMatchers("/v1/api/customer/**").hasRole("ADMIN")
-                        .requestMatchers("/v1/api/product/**").hasAnyRole("EMPLEADO", "ADMIN")
-                        // 🧾 Swagger UI y documentación pública
+                        .requestMatchers("/v1/api/auth/**").permitAll() // acceso público
+                        .requestMatchers("/v1/api/customer/**").hasRole("ADMIN") // acceso al backend Customer solo para ADMIN
+                        .requestMatchers("/v1/api/product/**").hasAnyRole("EMPLEADO", "ADMIN") // acceso al backend Product para EMPLEADO y ADMIN
+                        // 🧾 Swagger UI y documentación con acceso público
                         .requestMatchers(
                             "/v3/api-docs/**",
                             "/swagger-ui/**",

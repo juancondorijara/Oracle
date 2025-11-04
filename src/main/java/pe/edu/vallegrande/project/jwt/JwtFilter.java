@@ -23,6 +23,9 @@ import java.util.List;
 public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired
+    private AESUtil aesUtil;
+
+    @Autowired
     private JwtUtil jwtUtil;
 
     @Autowired
@@ -45,12 +48,13 @@ public class JwtFilter extends OncePerRequestFilter {
                     if (userOpt.isPresent() && jwtUtil.validateToken(token)) {
                         User user = userOpt.get();
 
-                        // ⚠️ Aquí agregamos el rol real del usuario
-                        List<SimpleGrantedAuthority> authorities =
-                                Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
+                        // Desencripta el rol antes de crear la autoridad
+                        String decryptedRole = aesUtil.decrypt(user.getRole());
+                        List<SimpleGrantedAuthority> authorities = Collections
+                                .singletonList(new SimpleGrantedAuthority("ROLE_" + decryptedRole));
 
-                        UsernamePasswordAuthenticationToken authToken =
-                                new UsernamePasswordAuthenticationToken(username, null, authorities);
+                        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                                username, null, authorities);
 
                         authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                         SecurityContextHolder.getContext().setAuthentication(authToken);

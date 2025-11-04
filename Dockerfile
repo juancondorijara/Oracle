@@ -5,17 +5,17 @@ COPY pom.xml ./
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-
 # Stage 2: Run
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
+COPY Wallet_developer /app/Wallet_developer
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
 
-# docker build -t juan321/backend-oracle:17-openjdk-jdk .
+# docker build -t juan321/backend-oracle:1.0 .
 
-#FROM amazoncorretto:17-alpine-jdk
-#FROM bellsoft/liberica-openjdk-alpine:17
-#FROM openjdk:17-alpine
-#FROM eclipse-temurin:17-jre-alpine
+# docker run -d --name back-end -p 8085:8085 juan321/backend-oracle:1.0
+
+# docker rm -f $(docker ps -aq)
+# docker rmi -f $(docker images -aq)
