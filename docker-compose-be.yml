@@ -1,0 +1,22 @@
+# docker-compose -f docker-compose-be.yml up -d
+# docker-compose -f docker-compose-be.yml down
+version: '3'
+
+services:
+  backend:
+    image: juan321/backend-oracle:1.0   # cambiar por tu usuario de dockerhub
+    container_name: back-end
+    ports:
+      - "8085:8085"
+    environment:
+      - PORT=8085
+      - DB_URL=jdbc:oracle:thin:@developer_medium?TNS_ADMIN=Wallet_developer
+      - DB_USERNAME=DEVELOPER_01
+      - DB_PASSWORD=Admin12345678
+      - DB_DRIVER=oracle.jdbc.OracleDriver
+
+# CREAR UNA RED EN ESTE COMPOSE PARA QUE SEA COMPARTIDA A FUTURO CON OTRO COMPOSE
+networks:
+  my-network:
+    name: my-network
+    driver: bridge

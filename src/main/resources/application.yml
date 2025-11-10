@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:oracle:thin:@developer_medium?TNS_ADMIN=Wallet_developer # host de oracle con Docker
-    username: DEVELOPER_01                          # mi usuario creado en oracle
-    password: Admin12345678                         # mi contraseña creado en oracle     
-    driver-class-name: oracle.jdbc.OracleDriver  # driver de oracle
+    url: ${DB_URL:jdbc:oracle:thin:@developer_medium?TNS_ADMIN=Wallet_developer}
+    username: ${DB_USERNAME:DEVELOPER_01}
+    password: ${DB_PASSWORD:Admin12345678}
+    driver-class-name: ${DB_DRIVER:oracle.jdbc.OracleDriver}
   jpa:
     hibernate:
       ddl-auto: none   # none | update | create | create-drop

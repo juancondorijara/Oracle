@@ -5,10 +5,12 @@ on:
     branches:
       - develop-be
       - develop # puedes añadir más ramas
+      - feature/sp3-backend
   pull_request:
     branches:
       - develop-be
       - develop # puedes añadir más ramas
+      - feature/sp3-backend
 
 jobs:
   dockerhub:
@@ -34,7 +36,5 @@ jobs:
           dockerfile: Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/mi-primer-action:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/mi-primer-action:${{ github.sha }}
-
-
+            ${{ secrets.DOCKERHUB_USERNAME }}/backend-oracle:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/backend-oracle:${{ github.sha }}
