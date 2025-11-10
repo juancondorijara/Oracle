@@ -3,10 +3,23 @@ server:
 
 spring:
   datasource:
+    # IMÁGEN C (HIBRIDA CON VARIABLES DE ENTORNO Y CREDENCIALES POR DEFECTO)
     url: ${DB_URL:jdbc:oracle:thin:@developer_medium?TNS_ADMIN=Wallet_developer}
     username: ${DB_USERNAME:DEVELOPER_01}
     password: ${DB_PASSWORD:Admin12345678}
     driver-class-name: ${DB_DRIVER:oracle.jdbc.OracleDriver}
+    
+    # IMÁGEN A (SIN VARIABLES DE ENTORNO)
+    #url: jdbc:oracle:thin:@developer_medium?TNS_ADMIN=Wallet_developer
+    #username: DEVELOPER_01
+    #password: Admin12345678
+    #driver-class-name: oracle.jdbc.OracleDriver
+
+    # IMÁGEN B (CON VARIABLES DE ENTORNO)
+    #url: ${DB_URL}
+    #username: ${DB_USERNAME}
+    #password: ${DB_PASSWORD}
+    #driver-class-name: ${DB_DRIVER}
   jpa:
     hibernate:
       ddl-auto: none   # none | update | create | create-drop
